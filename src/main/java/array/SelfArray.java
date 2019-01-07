@@ -127,6 +127,22 @@ public class SelfArray<E> {
     }
 
     /**
+     * 查询最后一个数据
+     * @return
+     */
+    public E getLast(){
+        return get(size - 1);
+    }
+
+    /**
+     * 查询第一个数据
+     * @return
+     */
+    public E getFirst(){
+        return get(0);
+    }
+
+    /**
      * 查询数组是否包含指定的数据
      * @param e
      * @return
