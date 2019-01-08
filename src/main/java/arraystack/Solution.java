@@ -1,10 +1,8 @@
-package stackarray;
-
-import java.util.Stack;
+package arraystack;
 
 /**
  * 项目名称：algorithm
- * 包： stackarray
+ * 包： arraystack
  * 类名称：Solution.java
  * 类描述：利用栈来解决括号匹配问题
  * 创建人：wufuming
@@ -17,7 +15,7 @@ public class Solution {
     }
     private static boolean isValid(String input) {
 
-        SelfStack<Character> stack = new StackArray<>();
+        SelfStack<Character> stack = new ArrayStack<>();
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
             if ('('==c||'['==c||'{'==c) {

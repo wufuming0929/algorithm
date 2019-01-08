@@ -1,8 +1,8 @@
-package stackarray;
+package arraystack;
 
 /**
  * 项目名称：algorithm
- * 包： stackarray
+ * 包： arraystack
  * 类名称：SelfStack.java
  * 类描述：自定义栈接口
  * 创建人：wufuming

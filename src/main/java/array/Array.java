@@ -8,7 +8,7 @@ package array;
  * 创建人：wufuming
  * 创建时间：2019年01月06日
  */
-public class SelfArray<E> {
+public class Array<E> {
 
     private E[] data;
     private int size;
@@ -19,7 +19,7 @@ public class SelfArray<E> {
      *
      * @param capacity 数组容量
      */
-    public SelfArray(int capacity) {
+    public Array(int capacity) {
         if (capacity <= 0) {
             throw new IllegalArgumentException("capacity is illegal:capacity=" + capacity);
         }
@@ -32,7 +32,7 @@ public class SelfArray<E> {
     /**
      * 无参构造
      */
-    public SelfArray() {
+    public Array() {
         this(DEFAULT_CAPACITY);
     }
 

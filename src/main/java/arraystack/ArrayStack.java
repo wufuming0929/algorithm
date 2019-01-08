@@ -1,25 +1,25 @@
-package stackarray;
+package arraystack;
 
-import array.SelfArray;
+import array.Array;
 
 /**
  * 项目名称：algorithm
- * 包： stackarray
+ * 包： arraystack
  * 类名称：StackArray.java
  * 类描述：基于数组实现的栈
  * 创建人：wufuming
  * 创建时间：2019年01月07日
  */
-public class StackArray<E> implements SelfStack<E>{
+public class ArrayStack<E> implements SelfStack<E>{
 
-    private SelfArray<E> array;
+    private Array<E> array;
 
-    public StackArray(int capacity){
-        array = new SelfArray<>(capacity);
+    public ArrayStack(int capacity){
+        array = new Array<>(capacity);
     }
 
-    public StackArray(){
-        array = new SelfArray<>();
+    public ArrayStack(){
+        array = new Array<>();
     }
 
     @Override

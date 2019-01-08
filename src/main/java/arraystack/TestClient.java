@@ -1,8 +1,8 @@
-package stackarray;
+package arraystack;
 
 /**
  * 项目名称：algorithm
- * 包： stackarray
+ * 包： arraystack
  * 类名称：TestClient.java
  * 类描述：测试类
  * 创建人：wufuming
@@ -12,7 +12,7 @@ public class TestClient {
 
     public static void main(String[] arges) {
 
-        SelfStack<String> stack = new StackArray<>();
+        SelfStack<String> stack = new ArrayStack<>();
         stack.push("william");
         stack.push("michelle");
         stack.push("angel");

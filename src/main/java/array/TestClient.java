@@ -1,7 +1,5 @@
 package array;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-
 /**
  * 项目名称：algorithm
  * 包： array
@@ -14,7 +12,7 @@ public class TestClient {
 
     public static void main(String[] arges) {
 
-        SelfArray<Student> students = new SelfArray<>();
+        Array<Student> students = new Array<>();
 
         students.addFirst(new Student("jessie",80));
         students.addFirst(new Student("william",100));
