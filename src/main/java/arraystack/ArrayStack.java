@@ -10,16 +10,16 @@ import array.Array;
  * 创建人：wufuming
  * 创建时间：2019年01月07日
  */
-public class ArrayStack<E> implements SelfStack<E>{
+public class ArrayStack<E> implements Stack<E> {
 
     private Array<E> array;
 
-    public ArrayStack(int capacity){
+    public ArrayStack(int capacity) {
         array = new Array<>(capacity);
     }
 
-    public ArrayStack(){
-        array = new Array<>();
+    public ArrayStack() {
+        this(8);
     }
 
     @Override
@@ -50,14 +50,14 @@ public class ArrayStack<E> implements SelfStack<E>{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("StackArray:[");
+        sb.append("ArrayStack:[");
         for (int i = 0; i < array.getSize(); i++) {
             sb.append(array.get(i));
-            if (i!= array.getSize()-1) {
+            if (i != array.getSize() - 1) {
                 sb.append(",");
             }
         }
-        sb.append("]");
+        sb.append("] top");
         return sb.toString();
     }
 }

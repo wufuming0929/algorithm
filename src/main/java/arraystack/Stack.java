@@ -4,11 +4,11 @@ package arraystack;
  * 项目名称：algorithm
  * 包： arraystack
  * 类名称：SelfStack.java
- * 类描述：自定义栈接口
+ * 类描述：栈接口
  * 创建人：wufuming
  * 创建时间：2019年01月07日
  */
-public interface SelfStack<E> {
+public interface Stack<E> {
     /**
      * 查询栈中元素的数量
      * @return

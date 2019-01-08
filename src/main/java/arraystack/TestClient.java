@@ -12,7 +12,7 @@ public class TestClient {
 
     public static void main(String[] arges) {
 
-        SelfStack<String> stack = new ArrayStack<>();
+        Stack<String> stack = new ArrayStack<>();
         stack.push("william");
         stack.push("michelle");
         stack.push("angel");
