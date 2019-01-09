@@ -10,15 +10,25 @@ package linkedlist;
  */
 public class LinkedListTest {
     public static void main(String[] arges) {
-
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        for (int i = 0; i < 10; i++) {
-            linkedList.addLast(i);
-            System.out.println(linkedList);
+        LinkedList<Character> linkedList = new LinkedList<>();
+        String str = "12";
+        for (int i = 0; i < str.length(); i++) {
+            linkedList.addLast(str.charAt(i));
         }
-
-        System.out.println(linkedList.removeElement(10));
+        System.out.println(plalindromeString(linkedList));
         System.out.println(linkedList);
+
+    }
+    private static boolean plalindromeString(LinkedList<Character> strList){
+
+        while (strList.getSize()>1){
+            char first = strList.removFirst();
+            char last = strList.removeLast();
+            if (first!=last) {
+                return false;
+            }
+        }
+        return true;
 
 
     }
