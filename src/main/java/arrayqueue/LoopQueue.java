@@ -53,9 +53,9 @@ public class LoopQueue<E> implements Queue<E> {
         data[front] = null;//for GC
         front = (front + 1) % data.length;
         size--;
-        if (size == data.length / 4 && data.length / 2 != 0) {
+        if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
             //缩容
-            resize(data.length / 2);
+            resize(getCapacity() / 2);
         }
         return first;
     }

@@ -8,7 +8,7 @@ package array;
  * 创建人：wufuming
  * 创建时间：2019年01月06日
  */
-public class TestClient {
+public class ArrayTest {
 
     public static void main(String[] arges) {
 

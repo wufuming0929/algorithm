@@ -10,7 +10,7 @@ import java.util.Random;
  * 创建人：wufuming
  * 创建时间：2019年01月08日
  */
-public class TestClient {
+public class QueueTest {
 
     private static int count = 100000;
 

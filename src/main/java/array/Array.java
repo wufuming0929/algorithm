@@ -26,7 +26,7 @@ public class Array<E> {
         if (capacity < DEFAULT_CAPACITY) {
             capacity = DEFAULT_CAPACITY;
         }
-        data = (E[])new Object[capacity];
+        data = (E[]) new Object[capacity];
     }
 
     /**
@@ -38,6 +38,7 @@ public class Array<E> {
 
     /**
      * 尾部追加数据
+     *
      * @param e
      */
     public void addLast(E e) {
@@ -46,6 +47,7 @@ public class Array<E> {
 
     /**
      * 头部插入数据
+     *
      * @param e
      */
     public void addFirst(E e) {
@@ -54,6 +56,7 @@ public class Array<E> {
 
     /**
      * 在指定位置插入数据
+     *
      * @param index
      * @param e
      */
@@ -70,6 +73,7 @@ public class Array<E> {
 
     /**
      * 删除最后一个数据
+     *
      * @return
      */
     public E removeLast() {
@@ -78,6 +82,7 @@ public class Array<E> {
 
     /**
      * 删除第一个数据
+     *
      * @return
      */
     public E removeFirst() {
@@ -86,13 +91,12 @@ public class Array<E> {
 
     /**
      * 删除指定位置数据
+     *
      * @param index
      * @return
      */
     public E remove(int index) {
-        if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("index outof bound:size=" + size + ",index=" + index);
-        }
+        checkIndexForRemove(index);
         E old = data[index];
         for (int i = index + 1; i < size; i++)
             data[i - 1] = data[i];
@@ -103,67 +107,71 @@ public class Array<E> {
 
     /**
      * 替换指定位置的数据
+     *
      * @param index
      * @param e
      * @return
      */
-    public E set(int index,E e){
+    public E set(int index, E e) {
         checkIndex(index);
         E old = data[index];
-        data[index]=e;
+        data[index] = e;
         return old;
     }
 
     /**
      * 查询指定位置的数据
+     *
      * @param index
      * @return
      */
-    public E get(int index){
-        if (index < 0 || index >= size) {
-            throw new IllegalArgumentException("index outof bound:size=" + size + ",index=" + index);
-        }
+    public E get(int index) {
+        checkIndexForRemove(index);
         return data[index];
     }
 
     /**
      * 查询最后一个数据
+     *
      * @return
      */
-    public E getLast(){
+    public E getLast() {
         return get(size - 1);
     }
 
     /**
      * 查询第一个数据
+     *
      * @return
      */
-    public E getFirst(){
+    public E getFirst() {
         return get(0);
     }
 
     /**
      * 查询数组是否包含指定的数据
+     *
      * @param e
      * @return
      */
-    public boolean contains(E e){
-        return indexOf(e)>0;
+    public boolean contains(E e) {
+        return indexOf(e) > 0;
     }
 
     /**
      * 获取指定数据的下标索引，不存在返回-1
+     *
      * @param e
      * @return
      */
-    public int indexOf(E e){
-        if (e==null) {
+    public int indexOf(E e) {
+        if (e == null) {
             for (int i = 0; i < size; i++) {
-                if (data[i]==null) {
+                if (data[i] == null) {
                     return i;
                 }
             }
-        }else {
+        } else {
             for (int i = 0; i < size; i++) {
                 if (e.equals(data[i])) {
                     return i;
@@ -172,15 +180,24 @@ public class Array<E> {
         }
         return -1;
     }
+
     //检查索引是否越界
     private void checkIndex(int index) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index outof bound:size=" + size + ",index=" + index);
         }
     }
+
+    //检查删除和查询索引是否越界
+    private void checkIndexForRemove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("index outof bound:size=" + size + ",index=" + index);
+        }
+    }
+
     //扩容
     private void resize() {
-        E[] newArr = (E[])new Object[data.length * 2];
+        E[] newArr = (E[]) new Object[data.length * 2];
         for (int i = 0; i < size; i++)
             newArr[i] = data[i];
         data = newArr;
@@ -188,13 +205,16 @@ public class Array<E> {
 
     /**
      * 是否为空
+     *
      * @return
      */
-    public boolean isEmpty(){
-        return size==0;
+    public boolean isEmpty() {
+        return size == 0;
     }
+
     /**
      * 获取数组元素个数
+     *
      * @return
      */
     public int getSize() {
@@ -203,6 +223,7 @@ public class Array<E> {
 
     /**
      * 获取数组的容量
+     *
      * @return
      */
     public int getCapacity() {

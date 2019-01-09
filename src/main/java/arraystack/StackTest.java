@@ -8,7 +8,7 @@ package arraystack;
  * 创建人：wufuming
  * 创建时间：2019年01月07日
  */
-public class TestClient {
+public class StackTest {
 
     public static void main(String[] arges) {
 
