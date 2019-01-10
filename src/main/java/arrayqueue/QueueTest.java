@@ -1,5 +1,7 @@
 package arrayqueue;
 
+import linkedlist.LinkedListQueue;
+
 import java.util.Random;
 
 /**
@@ -12,17 +14,20 @@ import java.util.Random;
  */
 public class QueueTest {
 
-    private static int count = 100000;
+    private static int count = 1000000;
 
     public static void main(String[] arges) {
 
         Queue<Integer> arrayQueue = new ArrayQueue<>();
         Queue<Integer> loopQueue = new LoopQueue<>();
-        double t1 = countTime(arrayQueue, count);
+        Queue<Integer> linkedListQueue = new LinkedListQueue<>();
+
+        //double t1 = countTime(arrayQueue, count);
         double t2 = countTime(loopQueue, count);
-        System.out.println("ArrayQueue 操作耗时:" + t1 + " s");
+        double t3 = countTime(linkedListQueue, count);
+        //System.out.println("ArrayQueue 操作耗时:" + t1 + " s");
         System.out.println("LoopQueue 操作耗时:" + t2 + " s");
-        System.out.println("差距："+t1/t2+" 倍");
+        System.out.println("linkedListQueue 操作耗时:" + t3 + " s");
 
     }
 

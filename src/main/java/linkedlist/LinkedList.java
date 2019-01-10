@@ -170,7 +170,7 @@ public class LinkedList<E> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Node cur = dummyHead.next; cur != null; cur = cur.next)
-            sb.append(cur.e + "-->");
+            sb.append(cur.e + "->");
         sb.append("NULL");
         return sb.toString();
     }

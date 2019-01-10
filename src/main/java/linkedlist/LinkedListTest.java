@@ -19,6 +19,13 @@ public class LinkedListTest {
         System.out.println(linkedList);
 
     }
+
+    /**
+     * 判断字符串回文
+     * 时间复杂度O(n²)，空间复杂度O(1)
+     * @param strList
+     * @return
+     */
     private static boolean plalindromeString(LinkedList<Character> strList){
 
         while (strList.getSize()>1){
