@@ -1,8 +1,5 @@
 package linkedlist;
 
-
-import java.util.NoSuchElementException;
-
 /**
  * 项目名称：algorithm
  * 包： linkedlist
@@ -18,6 +15,45 @@ import java.util.NoSuchElementException;
  * 创建时间：2019年01月10日
  */
 public class LinedListAlgo {
+
+    // 有序链表合并
+    public static Node mergeSortedLists(Node la, Node lb) {
+        if (la == null) return lb;
+        if (lb == null) return la;
+
+        Node p = la;
+        Node q = lb;
+        Node head;
+        if (p.val < q.val) {
+            head = p;
+            p = p.next;
+        } else {
+            head = q;
+            q = q.next;
+        }
+        Node r = head;
+
+        while (p != null && q != null) {
+            if (p.val < q.val) {
+                r.next = p;
+                p = p.next;
+            } else {
+                r.next = q;
+                q = q.next;
+            }
+            r = r.next;
+        }
+
+        if (p != null) {
+            r.next = p;
+        } else {
+            r.next = q;
+        }
+
+        return head;
+    }
+
+
     /**
      * 删除链表倒数第n个结点
      * @param head 头节点
@@ -145,24 +181,30 @@ public class LinedListAlgo {
 
         @Override
         public String toString() {
-            StringBuilder sb = new StringBuilder();
+        /*    StringBuilder sb = new StringBuilder();
             sb.append("Node: head [");
             for (Node next = this; next != null; next = next.next)
                 sb.append(next.val + "->");
-            sb.append("NULL ] tail");
-            return sb.toString();
+            sb.append("NULL ] tail");*/
+            return String.valueOf(val);
         }
     }
 
     public static void main(String[] arges) {
 
-        Node head = new Node(1);
-        Node first = head;
-        for (int i = 2; i < 6; i++) {
-            head.next = new Node(i);
-            head = head.next;
+        Node la = new Node(1);
+        Node firstA = la;
+        for (int i = 3; i < 6; i=i+2) {
+            la.next = new Node(i);
+            la = la.next;
         }
-        System.out.println(remove(first,6));
+        Node lb = new Node(2);
+        Node firstB = lb;
+        for (int i = 4; i < 7; i=i+2) {
+            lb.next = new Node(i);
+            lb = lb.next;
+        }
+        System.out.println(mergeSortedLists(firstA,firstB));
     }
 
 }
