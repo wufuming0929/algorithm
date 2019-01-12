@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.pojo.ListNode;
+
 /**
  * 项目名称：algorithm
  * 包： leetcode
@@ -9,18 +11,9 @@ package leetcode;
  * 创建时间：2019年01月11日
  */
 public class L203 {
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
-    public static ListNode removeElements(ListNode head, int val) {
+    public static <E>ListNode removeElements(ListNode<E> head, E val) {
         //虚拟节点
-        ListNode dummyHead = new ListNode(0);
+        ListNode<E> dummyHead = new ListNode(0);
         dummyHead.next = head;
         ListNode prev = dummyHead;
         for (ListNode first = dummyHead.next; first != null; first = first.next) {
@@ -37,15 +30,11 @@ public class L203 {
 
     public static void main(String[] arges) {
 
-        ListNode la = new ListNode(1);
-        ListNode firstA = la;
-        for (int i = 2; i < 5; i = i + 1) {
-            la.next = new ListNode(i);
-            la = la.next;
-        }
-        ListNode listNode = removeElements(firstA, 3);
-        System.out.println(listNode);
-
-
+        Integer[] arr = {1, 2, 6,3, 4, 6, 6};
+        ListNode<Integer> head = new ListNode<>();
+        head = head.assemblyNode(arr);
+        System.out.println(head);
+        head = removeElements(head, 6);
+        System.out.println(head);
     }
 }
