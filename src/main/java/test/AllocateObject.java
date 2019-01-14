@@ -10,12 +10,6 @@ package test;
  */
 public class AllocateObject {
 
-    public static void main(String[] arges) {
 
-
-
-
-
-    }
 
 }
