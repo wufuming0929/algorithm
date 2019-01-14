@@ -18,12 +18,12 @@ public class ListNode<E> {
     public ListNode(E val) {
         this.val = val;
     }
-    public ListNode assemblyNode(E[] arr){
+    public ListNode<E> assemblyNode(E[] arr){
         if (arr==null||arr.length<=0) return null;
         this.val=arr[0];
         ListNode head=this;
         for(int i=1;i<arr.length;i++){
-            head.next=new ListNode(arr[i]);
+            head.next=new ListNode<>(arr[i]);
             head=head.next;
         }
         return this;
@@ -39,5 +39,8 @@ public class ListNode<E> {
         }
         sb.append("NULL");
         return sb.toString();
+    }
+    public static void main(String[] arges) {
+        System.out.println(1200%10);
     }
 }
