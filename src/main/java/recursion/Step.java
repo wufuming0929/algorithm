@@ -41,7 +41,7 @@ public class Step {
     static int count2(int n) {
         if (n == 1) return 1;
         if (n == 2) return 2;
-        return count(n - 1) + count(n - 2);
+        return count2(n - 1) + count(n - 2);
     }
 
     /**
