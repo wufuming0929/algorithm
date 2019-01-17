@@ -1,6 +1,8 @@
 package test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 项目名称：algorithm
@@ -11,9 +13,6 @@ import java.util.Arrays;
  * 创建时间：2019年01月16日
  */
 public class Demo {
-
     public static void main(String[] arges) {
-
     }
-
 }
