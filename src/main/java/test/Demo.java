@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Arrays;
+
 /**
  * 项目名称：algorithm
  * 包： test
@@ -9,5 +11,9 @@ package test;
  * 创建时间：2019年01月16日
  */
 public class Demo {
+
+    public static void main(String[] arges) {
+
+    }
 
 }
