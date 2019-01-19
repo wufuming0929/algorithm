@@ -18,6 +18,12 @@ public class MergeSort implements Sort {
         System.out.println(Arrays.toString(arr));
     }
 
+    /**
+     * 归并排序算法分析：
+     * 1）不是原地排序，空间复杂度为O(n)
+     * 2）时间复杂度为O(nlogn)
+     * 3）稳定的排序算法
+     */
     @Override
     public void sort(int[] arr) {
         mergeSort(arr, 0, arr.length - 1);
