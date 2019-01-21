@@ -1,4 +1,6 @@
-package sort;
+package sort.practise;
+
+import sort.*;
 
 import java.util.Random;
 
