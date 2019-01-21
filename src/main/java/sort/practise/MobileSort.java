@@ -1,5 +1,8 @@
 package sort.practise;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Arrays;
 
 
@@ -13,7 +16,7 @@ import java.util.Arrays;
  */
 public class MobileSort {
     public static void main(String[] arges) {
-       /* File f = new File("E:/mobile.csv");
+        File f = new File("E:/mobile.csv");
         String[] arr = new String[1130];
         int index = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(f))) {
@@ -21,8 +24,8 @@ public class MobileSort {
             while ((mobile = reader.readLine()) != null)
                 arr[index++] = mobile;
         } catch (Exception e) {
-        }*/
-        String[] arr = {
+        }
+       /* String[] arr = {
                 "13910627762",
                 "13910219399",
                 "13911784120",
@@ -30,7 +33,7 @@ public class MobileSort {
                 "13910210818",
                 "13901287126",
                 "13911180470",
-        };
+        };*/
         sort(arr, arr.length, 10);
         System.out.println(Arrays.toString(arr));
     }
@@ -44,14 +47,14 @@ public class MobileSort {
     private static void sortInternally(String[] arr, int n, int sortIndex) {
         int[] c = new int[10];
         for (int i = 0; i < n; i++)
-            c[Character.digit(arr[i].charAt(sortIndex), 10)]++;
+            c[arr[i].charAt(sortIndex) - '0']++;
 
         for (int i = 1; i < c.length; i++)
             c[i] = c[i] + c[i - 1];
 
         String[] tmp = new String[n];
         for (int i = n - 1; i >= 0; i--) {
-            int p = Character.digit(arr[i].charAt(sortIndex), 10);
+            int p = arr[i].charAt(sortIndex) - '0';
             int index = c[p] - 1;
             tmp[index] = arr[i];
             c[p]--;
