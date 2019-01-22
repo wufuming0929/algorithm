@@ -38,9 +38,13 @@ public class QuickSort implements Sort {
         sort(arr, p + 1, r);
     }
 
+    /**
+     * 分区函数优化:采用三数取中法来优化分区,防止快排在极端情况下
+     * 时间复杂度退化为O(n²)
+     */
     private int partition(int[] arr, int l, int r) {
         int p = l + (r - l) / 2;
-        //三数取中优化快排(左,中,右三数按从小到大排序),使得快排时间复杂度不会退化成O(n²)
+        //三数取中优化快排(左,中,右三数按从小到大排序)
         if (arr[l] > arr[r]) {
             swap(arr, l, r);
         }
@@ -70,7 +74,11 @@ public class QuickSort implements Sort {
         arr[i] = arr[j];
         arr[j] = tmp;
     }
-  /*  private int partition(int[] arr, int l, int r) {
+
+    /**
+     * 优化前的分区函数:用来跟优化后做对比
+     */
+    private int partition1(int[] arr, int l, int r) {
         int pivot = arr[r], i = l, j = l;
         for (; j < r; j++) {
             if (arr[j] < pivot) {
@@ -80,7 +88,7 @@ public class QuickSort implements Sort {
         }
         swap(arr, i, r);
         return i;
-    }*/
+    }
 
 
 }

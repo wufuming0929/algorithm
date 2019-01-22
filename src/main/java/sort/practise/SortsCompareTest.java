@@ -15,7 +15,7 @@ import java.util.Random;
 public class SortsCompareTest {
 
     static int maxSize = 1;
-    static int eachSize = 100000000;
+    static int eachSize = 1000000;
 
     public static void main(String[] arges) {
         int[][] arrs = genArrs(maxSize, eachSize);
