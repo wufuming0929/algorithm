@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class MergeSort implements Sort {
     public static void main(String[] arges) {
         MergeSort sort = new MergeSort();
-        int[] arr = {6, 5, 4, 1, 3, 2};
+        int[] arr = {6, 5, 4, 1, 3, 2, 5, 7, 3, 1};
         sort.sort(arr);
         System.out.println(Arrays.toString(arr));
     }
@@ -37,7 +37,27 @@ public class MergeSort implements Sort {
         merge(arr, l, m, r);
     }
 
+    /**
+     * 优化后的merge函数:哨兵优化
+     */
     private void merge(int[] arr, int l, int m, int r) {
+        int i = l, j = m + 1, n = r - l + 1;
+        int[] tmp = new int[n];
+        for (int p = 0; p < n; p++) {
+            if (j > r || i <= m && arr[i] <= arr[j]) {
+                tmp[p] = arr[i++];
+            } else {
+                tmp[p] = arr[j++];
+            }
+        }
+        for (int q = 0; q < n; q++)
+            arr[l + q] = tmp[q];
+    }
+
+    /**
+     * 优化前的merge函数:用来跟优化后函数做对比用
+     */
+    private void merge1(int[] arr, int l, int m, int r) {
         int i = l, j = m + 1, k = 0;
         int[] tmp = new int[r - l + 1];
         while (i <= m && j <= r) {
@@ -59,4 +79,5 @@ public class MergeSort implements Sort {
         for (int q = 0; q < tmp.length; q++)
             arr[l++] = tmp[q];
     }
+
 }
