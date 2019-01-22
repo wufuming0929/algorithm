@@ -39,8 +39,23 @@ public class QuickSort implements Sort {
     }
 
     private int partition(int[] arr, int l, int r) {
-        int pivot = arr[r], i = l, j = l;
-        for (; j < r; j++) {
+        int p = l + (r - l) / 2;
+        //三数取中优化快排(左,中,右三数按从小到大排序),使得快排时间复杂度不会退化成O(n²)
+        if (arr[l] > arr[r]) {
+            swap(arr, l, r);
+        }
+        if (arr[l] > arr[p]) {
+            swap(arr, l, p);
+        }
+        if (arr[p] > arr[r]) {
+            swap(arr, p, r);
+        }
+
+        r = r - 1;
+        swap(arr, p, r);
+
+        int pivot = arr[r], i = l;
+        for (int j = l; j < r; j++) {
             if (arr[j] < pivot) {
                 swap(arr, i, j);
                 i++;
@@ -55,6 +70,19 @@ public class QuickSort implements Sort {
         arr[i] = arr[j];
         arr[j] = tmp;
     }
+  /*  private int partition(int[] arr, int l, int r) {
+        int pivot = arr[r], i = l, j = l;
+        for (; j < r; j++) {
+            if (arr[j] < pivot) {
+                swap(arr, i, j);
+                i++;
+            }
+        }
+        swap(arr, i, r);
+        return i;
+    }*/
+
+
 }
 
 
