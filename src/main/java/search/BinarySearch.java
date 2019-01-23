@@ -23,13 +23,13 @@ public class BinarySearch {
      */
     public static int bSearch(int[] arr, int n, int value) {
         int low = 0;
-        int hign = n - 1;
-        while (low <= hign) {
-            int mid = low + ((hign - low) >> 2);
+        int high = n - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) >> 2);
             if (arr[mid] == value) {
                 return mid;
             } else if (arr[mid] > value) {
-                hign = mid - 1;
+                high = mid - 1;
             } else {
                 low = mid + 1;
             }
@@ -44,12 +44,12 @@ public class BinarySearch {
         return bSearchInternally(arr, 0, n - 1, value);
     }
 
-    private static int bSearchInternally(int[] arr, int low, int hign, int value) {
-        if (low > hign) return -1;
-        int mid = low + ((hign-low) >> 2);
+    private static int bSearchInternally(int[] arr, int low, int high, int value) {
+        if (low > high) return -1;
+        int mid = low + ((high-low) >> 2);
         if (arr[mid] == value) return mid;
         if (arr[mid] > value) return bSearchInternally(arr, low, mid - 1, value);
-        return bSearchInternally(arr, mid + 1, hign, value);
+        return bSearchInternally(arr, mid + 1, high, value);
     }
 
 }
