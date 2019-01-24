@@ -8,12 +8,12 @@ package search;
  * 创建人：wufuming
  * 创建时间：2019年01月23日
  */
-public class BinarySearch {
+public class SimpleBinarySearch {
 
     public static void main(String[] arges) {
-        int[] arr = {3, 5, 7, 8, 10, 13};
-        System.out.println(bSearch(arr, arr.length, 10));
-        System.out.println(bSearchRecursion(arr, arr.length, 10));
+        int[] arr = {3,5,7,7,9,10,11};
+        //System.out.println(bSearch(arr, arr.length, 7));
+        System.out.println(bSearchRecursion(arr, arr.length, 7));
 
 
     }
@@ -25,7 +25,7 @@ public class BinarySearch {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
-            int mid = low + ((high - low) >> 2);
+            int mid = low + ((high - low) >> 1);
             if (arr[mid] == value) {
                 return mid;
             } else if (arr[mid] > value) {
@@ -46,7 +46,7 @@ public class BinarySearch {
 
     private static int bSearchInternally(int[] arr, int low, int high, int value) {
         if (low > high) return -1;
-        int mid = low + ((high-low) >> 2);
+        int mid = low + ((high-low) >> 1);
         if (arr[mid] == value) return mid;
         if (arr[mid] > value) return bSearchInternally(arr, low, mid - 1, value);
         return bSearchInternally(arr, mid + 1, high, value);
