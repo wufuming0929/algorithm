@@ -18,6 +18,8 @@ public class ArrayTest {
         students.addFirst(new Student("william",100));
         students.addLast(new Student("formain",99));
         students.addLast(new Student("michelle",66));
+        students.addLast(new Student("michelle22",66));
+        students.addLast(new Student("michelle33",66));
         System.out.println(students);
 
         System.out.println(students.get(1));
